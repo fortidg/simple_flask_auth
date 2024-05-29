@@ -39,4 +39,6 @@ def save_user():
 def secret_view():
     return render_template("secret.html")
 
-app.run(port=3000)
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=8000, debug=True)
