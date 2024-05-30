@@ -39,6 +39,18 @@ def save_user():
 def secret_view():
     return render_template("secret.html")
 
+@app.route('/feedback', methods=['GET', 'POST'])
+@auth_required
+def feedback():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        feedback = request.form['feedback']
+        with open('feedback.txt', 'a') as f:
+            f.write(f'Name: {name}, Email: {email}, Feedback: {feedback}\n')
+        return render_template('thanks.html')
+    else:
+        return render_template('feedback.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
