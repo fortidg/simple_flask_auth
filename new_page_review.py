@@ -51,6 +51,12 @@ def feedback():
         return render_template('thanks.html')
     else:
         return render_template('feedback.html')
+    
+@app.route('/view_feedback')
+def view_feedback():
+    with open('feedback.txt', 'r') as f:
+        feedback_data = f.read()
+    return render_template('view_feedback.html', feedback_data=feedback_data)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
