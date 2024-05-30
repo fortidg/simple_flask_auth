@@ -55,7 +55,7 @@ def feedback():
             f.write ("<h1>" f'{name}' "</h1>")
             f.write ("<h1>" f'{feedback}' "</h1>")
             f.write ("</body>")
-            f.write ("</html>")
+            f.write ("</html>" '\n')
             f.close()
         return render_template('thanks.html')
     else:
