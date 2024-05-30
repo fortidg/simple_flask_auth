@@ -48,12 +48,9 @@ def feedback():
         feedback = request.form['feedback']
         with open('templates/view_feedback.html', 'a') as f:
             f.write ("<html>")
-            f.write ("<head>")
-            f.write ("<title>View Feedback</title>")
-            f.write ("</head>")
             f.write ("<body>")
-            f.write ("<h1>" f'{name}' "</h1>")
-            f.write ("<h1>" f'{feedback}' "</h1>")
+            f.write ("<h3>" f'{name}' "</h3>")
+            f.write ("<p>" f'{feedback}' "</p>")
             f.write ("</body>")
             f.write ("</html>" '\n')
             f.close()
