@@ -48,9 +48,6 @@ def feedback():
         feedback = request.form['feedback']
         with open('feedback.txt', 'a') as f:
             f.write(f'Name: {name}, Email: {email}, Feedback: {feedback}\n')
-            append = f'Name: {name}, Feedback: {feedback}\n'
-            with open('thanks.html', 'a') as f:
-                f.write(append)
         return render_template('thanks.html')
     else:
         return render_template('feedback.html')
