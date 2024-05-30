@@ -46,17 +46,23 @@ def feedback():
         name = request.form['name']
         email = request.form['email']
         feedback = request.form['feedback']
-        with open('feedback.txt', 'a') as f:
-            f.write(f'Name: {name}, Email: {email}, Feedback: {feedback}\n')
+        with open('templates/view_feedback.html', 'a') as f:
+            f.write ("<html>")
+            f.write ("<head>")
+            f.write ("<title>" f'{name}' "</title>")
+            f.write ("</head>")
+            f.write ("<body>")
+            f.write ("<h1>" f'{feedback}' "</h1>")
+            f.write ("</body>")
+            f.write ("</html>")
+            f.close()
         return render_template('thanks.html')
     else:
         return render_template('feedback.html')
     
 @app.route('/view_feedback')
 def view_feedback():
-    with open('feedback.txt', 'r') as f:
-        feedback_data = f.read()
-    return render_template('view_feedback.html', feedback_data=feedback_data)
+    return render_template("view_feedback.html")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
