@@ -49,9 +49,10 @@ def feedback():
         with open('templates/view_feedback.html', 'a') as f:
             f.write ("<html>")
             f.write ("<head>")
-            f.write ("<title>" f'{name}' "</title>")
+            f.write ("<title>View Feedback</title>")
             f.write ("</head>")
             f.write ("<body>")
+            f.write ("<h1>" f'{name}' "</h1>")
             f.write ("<h1>" f'{feedback}' "</h1>")
             f.write ("</body>")
             f.write ("</html>")
