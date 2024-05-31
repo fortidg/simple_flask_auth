@@ -44,7 +44,6 @@ def secret_view():
 def feedback():
     if request.method == 'POST':
         name = request.form['name']
-        email = request.form['email']
         feedback = request.form['feedback']
         with open('templates/view_feedback.html', 'a') as f:
             f.write ("<html>")
