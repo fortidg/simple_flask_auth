@@ -2,6 +2,7 @@ from utils import auth_required
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask import make_response
 
 
 app = Flask(__name__)
@@ -53,7 +54,9 @@ def feedback():
             f.write ("</body>")
             f.write ("</html>" '\n')
             f.close()
-        return render_template('thanks.html')
+        response = make_response(render_template('thanks.html'))
+        response.set_cookie('name', name)
+        return response
     else:
         return render_template('feedback.html')
     
