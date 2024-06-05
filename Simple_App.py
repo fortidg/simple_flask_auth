@@ -54,9 +54,7 @@ def feedback():
             f.write ("</body>")
             f.write ("</html>" '\n')
             f.close()
-        response = make_response(render_template('thanks.html'))
-        response.set_cookie('name', name)
-        return response
+        return render_template('thanks.html')
     else:
         return render_template('feedback.html')
     
